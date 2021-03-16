@@ -1,0 +1,74 @@
+{
+  "fields": [
+      {
+        "name": "id",
+        "title": "Id",
+        "constraints": {
+            "required": true,
+            "unique": true,
+            "type": "http://www.w3.org/TR/xmlschema-2/#int"
+         }
+      },
+      {
+        "name": "product_id",
+        "title": "Product Id",
+        "constraints": {
+            "required": true,
+            "type": "http://www.w3.org/TR/xmlschema-2/#int"
+        }
+      },
+      {
+        "name": "body",
+        "title": "Body",
+        "constraints": {
+            "required": true,
+            "minLength": 50,
+            "maxLength": 1000,
+            "type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      {
+        "name": "date_written",
+        "title": "Date Written",
+        "constraints": {
+            "required": true,
+            "type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      {
+        "name": "asker_name",
+        "title": "Asker Name",
+        "constraints": {
+            "required": true,
+            "maxLength": 60,
+            "type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      {
+        "name": "asker_email",
+        "title": "Asker Email",
+        "constraints": {
+            "required": true,
+            "maxLength": 60,
+            "type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      {
+        "name": "reported",
+        "title": "Reported",
+        "constraints": {
+            "required": true,
+            "type": "http://www.w3.org/TR/xmlschema-2/#int"
+        }
+      },
+      {
+        "name": "helpful",
+        "title": "Helpful",
+        "constraints": {
+            "required": true,
+            "type": "http://www.w3.org/TR/xmlschema-2/#int"
+        }
+      }
+
+  ]
+}
