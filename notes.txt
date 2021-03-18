@@ -1,0 +1,12 @@
+CREATE PROCEDURE handlerdemo2 ()
+  BEGIN
+   DECLARE CONTINUE HANDLER FOR SQLSTATE '23000' SET @x2 = 1;
+   SET @x = 1;
+   INSERT INTO test.t VALUES (1);
+   GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE,
+         @errno = MYSQL_ERRNO, @message = MESSAGE_TEXT;
+         SELECT @errno, @sqlstate, @message;
+   SET @x = 2;
+   INSERT INTO test.t VALUES (1);
+   SET @x = 3;
+ END;
