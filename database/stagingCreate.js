@@ -20,3 +20,4 @@ con.connect(function(err) {
     console.log("Questions created");
   });
 })
+
