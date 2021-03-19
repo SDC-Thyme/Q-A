@@ -30,4 +30,4 @@ var fKeySql = 'ALTER TABLE answer_photos ADD FOREIGN KEY (answer_id) REFERENCES 
 
 
 
-//remember to add the foreign key constraint after since it doesn't work here
+//remember to add index for the answer_id;
