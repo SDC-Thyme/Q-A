@@ -3,11 +3,12 @@ const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
 const getRouter = require('./getRouter.js');
-const con = require('../database');
+const postRouter = require('./postRouter.js');
+var mysql = require('mysql');
+var PASSWORD = require('../config.js');
+const con = require('./dbConnection.js');
 
 
-app.use(bodyParser.json());
-app.use(getRouter);
 
 con.connect(function(err) {
   if (err) throw err;
@@ -15,11 +16,17 @@ con.connect(function(err) {
 }
 )
 
+app.use(bodyParser.json());
+app.use(getRouter);
+app.use(postRouter);
 
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
+
+module.exports = con
 
 //SELECT questions.id, questions.body, questions.asker_name, questions.helpful FROM questions WHERE questions.product_id = 11100 AND questions.reported = 0;
 

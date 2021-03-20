@@ -1,5 +1,6 @@
 var getRouter = require('express').Router();
-var getController = require('./getController.js')
+var getQuestions = require('./getControllers/getQuestions.js');
+var getAnswers = require('./getControllers/getAnswers.js');
 
 getRouter.route('/qa/questions')
 .get( (req,res) => {
@@ -9,8 +10,17 @@ getRouter.route('/qa/questions')
   if (qParams.product_id === undefined) {
     res.status(400).send('Product Id Undefined');
   } else {
-      getController.getQuestions(qParams, res);
+      getQuestions(qParams, res);
   }
+
+})
+
+getRouter.route('/qa/questions/:question_id/answers')
+.get( (req,res) => {
+  console.log(req.params, req.query)
+  var aParams = {...req.params, ...req.query}
+  getAnswers(aParams, res)
+
 
 })
 
