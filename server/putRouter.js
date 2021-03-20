@@ -6,24 +6,24 @@ var putAnswerReport = require('./putControllers/putAnswerReport.js');
 
 
 putRouter.route('/qa/questions/:question_id/helpful')
-  .get((req, res) => {
+  .put((req, res) => {
     putQuestionHelpful(req.params, res);
   })
 
 putRouter.route('/qa/questions/:question_id/report')
-  .get((req, res) => {
+  .put((req, res) => {
     putQuestionReport(req.params, res);
   })
 
 putRouter.route('/qa/answers/:answer_id/helpful')
-  .get((req, res) => {
+  .put((req, res) => {
     putAnswerHelpful(req.params, res);
   })
 
 
 
 putRouter.route('/qa/answers/:answer_id/report')
-  .get((req, res) => {
+  .put((req, res) => {
     putAnswerReport(req.params, res);
   })
 
