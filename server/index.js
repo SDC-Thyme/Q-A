@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 5000;
 const bodyParser = require('body-parser');
 const getRouter = require('./getRouter.js');
 const postRouter = require('./postRouter.js');
 const putRouter = require('./putRouter.js');
 var mysql = require('mysql');
-var PASSWORD = require('../config.js');
+
 const con = require('./dbConnection.js');
 
 

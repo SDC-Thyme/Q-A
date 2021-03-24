@@ -1,11 +1,12 @@
 var mysql = require('mysql');
-var PASSWORD = require('../config.js');
+require('dotenv').config();
 
 var con = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: PASSWORD,
-  database: 'staging'
+  host: process.env.DATABASE_HOST || 'localhost',
+  user: 'sdc_user',
+  password: 'sdcmysql',
+  database: 'staging',
+  port: 3306
 })
 
 module.exports = con;
