@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  web:
+    build: .
+    ports:
+      - '5000:5000'
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+
+
+  db:
+    build: ./db-config
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3318:3306
+    volumes:
+      - /Users/dbdav1/Desktop/SDC-Data:/data
+      - /Users/docker/q-a_db_1/conf.d:/etc/mysql/conf.d
