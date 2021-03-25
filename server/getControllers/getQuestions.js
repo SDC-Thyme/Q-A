@@ -26,7 +26,7 @@ var getQuestions = ({product_id, count = 5, page = 1}, res) => {
         }
       }
       qstIdString += ')';
-    console.log(qstIdString );
+
       if (qstIdString !== '()') {
       con.query(`SELECT answers.id, answers.question_id, answers.body, answers.date_written, answers.answerer_name, answers.helpfulness FROM answers  WHERE answers.reported = 0 AND answers.question_id IN ${qstIdString};`, function(err, data) {
         if (err) {

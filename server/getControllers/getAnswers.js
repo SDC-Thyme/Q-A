@@ -3,7 +3,7 @@ const con = require('../dbConnection.js')
 
 
 var getAnswers = ({question_id, count = 5, page = 1}, res) => {
-  console.log({question_id, count,page})
+
   con.query(`SELECT answers.id, answers.body, answers.date_written, answers.answerer_name, answers.helpfulness FROM answers WHERE answers.question_id = ${question_id} AND answers.reported = 0 LIMIT ${count * (page - 1)}, ${count};`, function(err, data) {
     if (err) {
      return res.status(400).send(err);
@@ -48,7 +48,7 @@ var getAnswers = ({question_id, count = 5, page = 1}, res) => {
 
 
 
-    console.log(ansIdString);
+
 
   })
 
