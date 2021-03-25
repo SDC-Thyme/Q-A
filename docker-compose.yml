@@ -8,6 +8,11 @@ services:
       - db
     environment:
       - DATABASE_HOST=db
+    restart_policy:
+        condition: on-failure
+        delay: 1s
+        max_attempts: 3
+
 
 
   db:
