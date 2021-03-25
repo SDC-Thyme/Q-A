@@ -33,7 +33,7 @@ getRouter.route('/')
 
 getRouter.route('/loaderio-ee8ed6c7a87a1e888773fbef9ece13c4/')
 .get( (req,res) => {
- res.send('loaderio-ee8ed6c7a87a1e888773fbef9ece13c4/');
+ res.sendFile('/loaderToken');
 
 })
 
