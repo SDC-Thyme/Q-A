@@ -17,5 +17,5 @@ services:
     ports:
       - 3318:3306
     volumes:
-      - /var/lib/mysql-files:/data
+      - /var/lib/mysql-files:/var/lib/mysql-files
       - /etc/my.cnf:/etc/mysql/conf.d
