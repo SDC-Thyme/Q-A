@@ -5,11 +5,11 @@ var getAnswers = require('./getControllers/getAnswers.js');
 
 getRouter.route('/qa/questions')
 .get( (req,res) => {
-  console.log(req.query)
+
   var qParams = req.query;
 
   if (qParams.product_id === undefined) {
-    res.status(400).send('Product Id Undefined');
+    return res.status(400).send('Product Id Undefined');
   } else {
       getQuestions(qParams, res);
   }
@@ -18,7 +18,7 @@ getRouter.route('/qa/questions')
 
 getRouter.route('/qa/questions/:question_id/answers')
 .get( (req,res) => {
-  console.log(req.params, req.query)
+
   var aParams = {...req.params, ...req.query}
   getAnswers(aParams, res)
 
