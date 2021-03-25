@@ -17,5 +17,5 @@ services:
     ports:
       - 3318:3306
     volumes:
-      - ~/Users/dbdav1/Desktop/SDC-Data:/data
+      - /var/lib/mysql-files:/data
       - ~/Users/docker/q-a_db_1/conf.d:/etc/mysql/conf.d
