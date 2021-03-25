@@ -6,7 +6,7 @@ var getAnswers = ({question_id, count = 5, page = 1}, res) => {
   console.log({question_id, count,page})
   con.query(`SELECT answers.id, answers.body, answers.date_written, answers.answerer_name, answers.helpfulness FROM answers WHERE answers.question_id = ${question_id} AND answers.reported = 0 LIMIT ${count * (page - 1)}, ${count};`, function(err, data) {
     if (err) {
-      res.status(400).send(err);
+      next(err)
     }
 
     var ansData = data;
@@ -28,7 +28,7 @@ var getAnswers = ({question_id, count = 5, page = 1}, res) => {
 
       con.query(`SELECT answer_photos.answer_id, answer_photos.id, answer_photos.url FROM answer_photos WHERE answer_photos.answer_id IN ${ansIdString};`, function(err, data) {
         if (err) {
-          res.status(400).send(err);
+          next(err)
         }
 
 
