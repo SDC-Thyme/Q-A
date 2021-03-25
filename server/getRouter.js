@@ -2,6 +2,7 @@ var getRouter = require('express').Router();
 var getQuestions = require('./getControllers/getQuestions.js');
 var getAnswers = require('./getControllers/getAnswers.js');
 
+
 getRouter.route('/qa/questions')
 .get( (req,res) => {
   console.log(req.query)
@@ -27,6 +28,12 @@ getRouter.route('/qa/questions/:question_id/answers')
 getRouter.route('/')
 .get( (req,res) => {
  res.send('hi');
+
+})
+
+getRouter.route('/loaderio-ee8ed6c7a87a1e888773fbef9ece13c4/')
+.get( (req,res) => {
+ res.send('loaderio-ee8ed6c7a87a1e888773fbef9ece13c4/');
 
 })
 
