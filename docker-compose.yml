@@ -18,4 +18,4 @@ services:
       - 3318:3306
     volumes:
       - /var/lib/mysql-files:/data
-      - ~/Users/docker/q-a_db_1/conf.d:/etc/mysql/conf.d
+      - /etc/my.cnf:/etc/mysql/conf.d
