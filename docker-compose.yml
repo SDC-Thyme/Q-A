@@ -9,7 +9,7 @@ services:
     environment:
       - DATABASE_HOST=db
     volumes:
-      - /home/ec2-user/loaderToken/loaderio-852382a9231ea08621370785f45f495c.txt:/loaderToken/loaderio-852382a9231ea08621370785f45f495c.txt
+      - /home/ec2-user/loaderToken/loaderio-9106c78a1e15670fad061d0b23903faf.txt:/loaderToken/loaderio-9106c78a1e15670fad061d0b23903faf.txt
     restart: always
 
 
