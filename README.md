@@ -29,3 +29,21 @@ Docker was later implemented for easier deployment to AWS.
     PUT | /qa/questions/:question_id/report | Toggles a question as being "reported".
     PUT | /qa/answers/:answer_id/helpful | Increments the "helpful" statistic associated with an answer.
     PUT | /qa/answers/:answer_id/report | Toggles an answer as being "reported".
+
+## Stress Test Results
+
+I tested the system using Loader.io to generate a number of clients per second. The uses MySQL only, and leaves the door open for future optomizations such as caching via Redis. The system is designed to optomize read speeds at the cost of write speeds, with each table having both a primary key index, and an index by foreign key.
+
+The 'GET' request tests for both the questions and the answers showed that the system capped out at around 400 clients per second which, at 300 requests over the inital goal, is reasonably resilient and provides a good foundation for future updates and improvements.
+
+![test 1](/Users/dbdav1/SDC/Q-A/testing-photos/SDC-real-test-1.png)
+
+![test 2](/Users/dbdav1/SDC/Q-A/testing-photos/SDC-real-test-2.png)
+
+> Note that the low number for '400' errors is due to the incompleteness of the data in the deployed instance, rather than a fault with the system.
+
+The 'POST' request tests showed less resilience in the system for write operations, as expected. The server could write about 250 questions per second, and write only around 100 answers per second. While the answers number may seem low at first glance, it's important to note that each answer had attached photos which had to be saved in a separate table and thus rewrite a second index. Since not every answer would have attached photos in a real world scenario, the 100 number is more of a worst case test than an average one. Never the less, these operations definitely have room for improvement, and more research will need to be done in what improvements can be made while preserving the read speeds of the system.
+
+![test 3](/Users/dbdav1/SDC/Q-A/testing-photos/SDC-real-test-3.png)
+
+![test 4](/Users/dbdav1/SDC/Q-A/testing-photos/SDC-real-test-4.png)
