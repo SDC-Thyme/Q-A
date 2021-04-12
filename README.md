@@ -42,8 +42,13 @@ The 'GET' request tests for both the questions and the answers showed that the s
 
 > Note that the low number for '400' errors is due to the incompleteness of the data in the deployed instance, rather than a fault with the system.
 
-The 'POST' request tests showed less resilience in the system for write operations, as expected. The server could write about 250 questions per second, and write only around 100 answers per second. While the answers number may seem low at first glance, it's important to note that each answer had attached photos which had to be saved in a separate table and thus rewrite a second index. Since not every answer would have attached photos in a real world scenario, the 100 number is more of a worst case test than an average one. Never the less, these operations definitely have room for improvement, and more research will need to be done in what improvements can be made while preserving the read speeds of the system.
+The 'POST' request tests showed less resilience in the system for write operations, as expected. The server could write about 250 questions per second, and write between 100 and 250 answers per second depending on whether or not the answers did or didn't have attached photos. It's important to note that each answer's attached photos had to be saved in a separate table and thus rewrite a second index. Since not every answer would have attached photos in a real world scenario, the 100 number is more of a worst case test than an average one. Never the less, these operations definitely have room for improvement, and more research will need to be done in what improvements can be made while preserving the read speeds of the system.
 
 ![test 3](testing-photos/SDC-real-test-3.png)
 
 ![test 4](testing-photos/SDC-real-test-4.png)
+> answers with photos
+
+![test 5](testing-photos/SDC-real-test-5.png)
+> answers without photos
+
