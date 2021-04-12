@@ -14,6 +14,7 @@ var postAnswer = ({question_id, body, name, email, photos}, res) => {
 
     var photoString = '';
 
+    if (photos.length > 0) {
     for (var i = 0; i < photos.length; i++) {
       photoString += `(${data.insertId}, ${JSON.stringify(photos[i])})`;
       if (i !== photos.length - 1) {
@@ -26,9 +27,11 @@ var postAnswer = ({question_id, body, name, email, photos}, res) => {
       if (err) {
       return  res.status(400).send(err);
       }
-      res.send(data);
+      return res.send(data);
     })
-
+  } else {
+    return res.send(data)
+  }
 
   })
 
